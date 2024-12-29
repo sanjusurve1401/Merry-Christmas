@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: "Euphoria Script", sans-serif;
+    margin: 0;
+    background-color: rgb(16, 29, 48);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#snowflakes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; 
+}
+
+.snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    animation-delay: 3s;
+}
+
+
+.great-vibes-regular {
+    font-family: "Great Vibes", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.text {
+    position: absolute;
+    bottom: -20vh; 
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
+    font-size: 3rem;
+    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+    z-index: 3;
+    opacity: 0;
+    animation: moveText 3s ease-out forwards;
+}
+
+
+.container-fluid {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cloud {
+    position: absolute;
+    top: -2vh; 
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInCloud 3s ease-out forwards;
+}
+
+.village {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: 0;
+    opacity: 1;
+    animation: fadeInVillage 3s ease-out forwards;
+}
+
+.moon {
+    position: absolute;
+    bottom: calc(35vh - 150px); 
+    left: calc(50vw - 150px); 
+    transform: scale(1);
+    width: 300px; 
+    z-index: 2;
+    animation: moveMoon 3s ease-out forwards;
+}
+
+
+.santa {
+    position: absolute;
+    top: 45vh; 
+    left: -10%; 
+    width: 200px; 
+    opacity: 0;
+    z-index: 3;
+    animation: moveSanta 7s ease-in-out forwards;
+    animation-delay: 3s;
+}
+
+
+@media (max-width: 992px) {
+    .moon {
+        width: 250px;
+        bottom: calc(35vh - 125px);
+    }
+
+    .santa {
+        width: 150px;
+    }
+
+    .village, .cloud {
+        width: 120vw;
+    }
+}
+@keyframes fall {
+    0% {
+        transform: translateY(50vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@media (max-width: 576px) {
+    .moon {
+        width: 200px;
+        bottom: calc(30vh - 100px);
+    }
+
+    .santa {
+        width: 120px;
+    }
+
+    .village, .cloud {
+        width: 130vw;
+    }
+}
+
+@keyframes moveMoon {
+    0% {
+        bottom: -20vh;
+        transform: scale(0.5);
+    }
+    100% {
+        bottom: calc(61vh - 150px);
+        transform: scale(1);
+    }
+}
+
+@keyframes moveText {
+    0% {
+        bottom: -20vh; 
+        transform: translateX(-50%) scale(0.5); 
+        opacity: 0;
+    }
+    100% {
+        font-size: 70px;
+        bottom: calc(93vh - 200px); 
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveSanta {
+    0% {
+        left: 35%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        left: calc(50vw - 100px); 
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInCloud {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInVillage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
